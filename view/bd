@@ -1,0 +1,312 @@
+都是基础，问的比较深、简单的算法；递归、链表排序（冒泡、选择、插入、快排、归并、希尔、堆排序），常用的实现 ，考察了vue的一些原理和浏览器机制；递归、手动实现节流、防抖，比较麻烦的布局；
+1 Css bfc static 和 relative的区别 ✅
+2 node require 和 import的区别，require看起来像注册在全局
+3 写版本号排序的代码（及优化），时间复杂度
+5 react 的diff算法，key 的作用
+6 是否喜欢看源码，看源码的感觉
+7、实现一个add方法，使计算结果能够满足如下预期：✅
+    add(1)(2)(3) ()
+    add(1, 2, 3)(4)()
+8、项目优化
+10、虚拟dom的好处
+11、动态规划求解最多有几种方案求解硬币找零问题
+13、关于异步任务执行的题目，涉及主线程任务、宏任务、微任务
+14. 场景：从1-10，按顺序每秒输出一个数字
+15. 变量提升，函数内 var 和 let 声明的执行结果各怎样 ✅
+    ```js
+    var a = 10;
+    function say() {
+        console.log(a);
+        var a = 20;
+        // var let a = 20;
+        console.log(a);
+    }
+    ```
+16. css 垂直居中
+17. css 3D 加速
+18. redux 的优缺点
+19. react 中 render props 适用场景（类组件和函数组件的区别）
+20. 浏览器缓存策略及相应流程
+21. 手写 Promise.all ✅
+22、垂直居中
+27、 设计和产品规划的一个组件，但是基础组件库没有，rax 的
+28、HTTPS 和 HTTP 的区别
+30、 什么时候传值，什么时候传变量
+31、问了debounce的实现，居中定位的各种方法，给了一个数组求两数相加和等于m总共有多少种可能性，还有问怎么定位排查用户反馈页面性能问题，性能方面的问题聊了比较久
+代码执行顺序 ✅
+    // 同步代码
+    console.log('begin');
+    // setTimeout 添加一个 宏观任务
+    setTimeout(() => {
+        // 同步
+        console.log('setTimeout 1');
+        // 微观任务
+        Promise.resolve()
+        .then(() => {
+            // 同步
+            console.log('promise 1');
+            // 添加宏观任务
+            setTimeout(() => {
+                console.log('setTimeout2 between promise1&2');
+            })
+        })
+        .then(() => {
+            // 微观任务
+            console.log('promise 2');
+        });
+    }, 0);
+    // 同步代码
+    console.log('end');
+    结果:
+        begin
+        end
+        setTimeout 1
+        promise 1
+        promise 2
+        setTimeout2 between promise1&2
+
+arguments 如何转数组, 尽可能多方式 ✅
+    arguments 为什么可以通过上述方式转为数组?
+    [...arguments];
+    Array.prototype.slice.call(arguments);
+    function(...arg) {}
+    Array.form(arguments)
+
+问的都和自己项目有关的，编程题一道CSS的10px字体无法显示的解决方案，transform:scale，防抖
+39、浏览器的绘制原理，重排及重绘 ✅
+40、请实现 DOM2JSON 一个函数，可以把一个DOM节点输出JSON的格式，例如下面的例子✅
+    <div>
+    <span>
+        <a></ a>
+    </span>
+    <span>
+        <a></ a>
+        <a></ a>
+    </span>
+    </div>
+    {
+    tag: 'DIV',
+    children: [
+        {
+        tag: 'SPAN',
+        children: [
+            { tag: 'A', children: [] }
+        ]
+    },
+41. 请实现如下的函数，可以批量请求数据，所有的 URL 地址在 urls 参数中，同时可以通过 max 参数控制请求的并发度，当所有请求结束之后，需要执行 callback 回掉函数。发请求的函数可以直接使用 fetch 即可
+function sendRequest(urls: string[], max: number, callback: () => void) {
+}
+42.ts class里面怎么实现一个runtime里面访问不到private的属性
+43.闭包的变量内存怎么分布的
+44. 协程与同步异步
+47.[-1,-2,8,9,-10] 求最大和
+48.webpack的plugin与loader的区别，有没有写过plugin或者loader？
+50.Node的SSR是否有做过，怎么做的？
+51.项目中自认为最好的项目是哪个，做了哪些比较有价值的事？
+54.编程题：
+DomtoJson:将Dom树写成Json格式？
+链表环检测?
+请实现如下的函数，可以批量请求数据，所有的 URL 地址在 urls 参数中，同时可以通过 max 参数控制请求的并发度，当所有请求结束之后，需要执行 callback 回掉函数。发请求的函数可以直接使用 fetch 即可
+function sendRequest(urls: string[], max: number, callback: () => void) {
+}
+56.	介绍一下你做的项目，然后揪着这个项目问一些实现或者你做的功能相关
+介绍一下eventloop、介绍一下promise，看打印 、实现一个上下固定高度，然后中间至少是撑满屏幕的布局、实现一个promise all、实现一个flat、介绍一个你做的组件功能和实现，然后根据组件会提很多边界问题，问你实现。有没有后端语言开发经验。
+二面：
+1、都是vue各种原理解析、http协议理解、用法；
+2、各种异步任务执行顺序，类型转换；算法：动态规划
+3. 讲一下收获最大的项目
+5. 讲一下 dom-diff 算法
+6. 实现下面功能✅
+    ```js
+    class Scheduler {
+      constructor(){
+        this.current = 0;
+        this.queue = [];
+      }
+      run(){
+        if(this.queue.length===0){ return;}
+        const [task,resolve] = this.queue.shift();
+        this.current ++;
+        task().then(()=>{
+          this.current --;
+          resolve();
+          this.run();
+        })
+      }
+      add(promiseCreator) {
+        return new Promise((resolve,reject)=>{
+          this.queue.push([promiseCreator,resolve]);
+          if(this.current<2){
+            this.run();
+          }
+        })
+      }
+    }
+
+    const timeout = (time) => new Promise(resolve => {
+        setTimeout(resolve, time)
+    })
+
+    const scheduler = new Scheduler()
+    const addTask = (time, order) => {
+        scheduler.add(() => timeout(time))
+            .then(() => console.log(order))
+    }
+
+    addTask(1000, '1')
+    addTask(500, '2')
+    addTask(300, '3')
+    addTask(400, '4')
+    // output: 2 3 1 4
+
+    // 一开始，1、2两个任务进入队列
+    // 500ms时，2完成，输出2，任务3进队
+    // 800ms时，3完成，输出3，任务4进队
+    // 1000ms时，1完成，输出1
+    // 1200ms时，4完成，输出4
+    ```
+
+9、redux   saga     vue   订阅、发版   双向绑定    观察者模式     设计模式    单例    中介者    高阶组件
+reflow repaint     获取       react性能优化   houldComponentUpdate     function component
+diff    key   immutable   equal    redux性能   connect     reselect    多线程    多进程  web首屏
+3个js文件，300k，是否需要合并为900k的js   tcp    并发上线    多域名  dns, tcp  tcp  keep-alive
+http2   nw electron
+10、继承和原型链，浏览器窗口居中，宏任务与微任务，性能优化，深度克隆，算法题（题目非常长，没有记下来）
+11、链表环检测
+12、聊聊动态规划,红黑树原理
+13、自适应search框; input + button 布局;
+14、页面性能优化
+15、vue diff算法,key作用;
+18、实现方式?
+入参,返回值,内部实现
+为什么每次返回新 Promise, 像 jquery 那样直接返回 this 不行吗? ✅
+[1,2,2,3,2,1] 有以上数组输出字符串 (不考虑缩进):尽量不用到 domApi
+    <ul>
+        <li deep="1">
+            <ul>
+                <li deep="2"></li>
+                <li deep="2">
+                    <ul>
+                        <li deep="3"></li>
+                    </ul>
+                </li>
+                <li deep="2"></li>
+            </ul>
+        </li>
+        <li deep="1"></li>
+    </ul>
+21、伪元素
+    - before
+    - after 的作用
+    - 比如说画图，画三角形（before 和 after 是内外？）
+        - border-left： 50% 50% transparent
+        - border-right:  50% 50% transparent
+        - border-top:   100% 100% red
+22、css 选择器的优先级
+    - id 扫描器，最优先，扫描到就不继续往下扫码了
+    - class 全扫描，并且是倒着来的
+    - a.classNameA 的优先级比 .classNameA 高
+    - 其他的暂时没了解
+23、 常见的垂直和水平居中
+24、文字的
+        - text-align
+        - height 和 line-hieght
+25、块级元素的
+        - display: table-cell
+        - vertical-align: middle
+    - margin: 0 auto
+26、相对定位
+        - postion: relative， left: 50% 相对于父级左移 50%
+        - trasform: 相对于自己左移 50%
+27、写了一个数据去重的算法
+    - 判断条件如果不用 indexOf 用啥
+    - filter
+28、 React 的生命周期
+    - react 16 的新特性
+        - componentDidCatch
+        - 还有另一个仅监听子组件错误的
+        - 还有两个属性用于支持 fiber 的（可以渲染到一半看看有没有更高优先级的属性）
+29、key 有什么用
+        - 用于 diff 算法的优化
+            - diff 算法的大前提
+            - 用于数据的排序优化
+30、两个同级的 react 组件如何通信
+    - 通过父组件
+    - mbox 的 store（父组件 provider + 子组件 inject）
+    - React 16 的 context？
+    - React 16 的一个新属性
+        - 子组件传递给父组件，父组件更新 state 然后修改子组件的 props，会导致子组件二次渲染，用于解决这个问题
+31、 constructor 和 didMount 的区别
+- 为什么请求不能放在 constructor 里面
+    - state 可能在 constructor 里面或外面（一般习惯性写外面，但这样 state 都没有定义，setState 不方便控制内存）
+    - 无 fiber 的情况下组件层层渲染会阻塞，可能请求回来了还没有初次 render 结束
+
+33、定义一个通用回调函数，外面有个变量来统计回调返回的数量，达到后再统一执行代码
+34.请求头有哪些信息？各自的作用是什么？
+35.编程题
+快速排序与插入排序？
+二叉树遍历？
+异步、微任务、宏任务的一道输出顺序题
+柯里化操作编程
+三面：
+1、主要聊的项目，最后面试官问了一道题，出了一个按顺序打印异步请求结果的题目，用闭包
+2、聊了一个小时，问得也都不是常规问题，比如性能, 他不问性能优化的措施, 问的是我的性能数据从哪来，另外我说我搭了一套发布工具来解决发布问题, 他也不问实现逻辑是什么, 问的是发布记录的数据容灾；就让我写了个异步加载的方法
+3、1. 介绍项目
+4. flex 实现居中
+6. xss、xsrf 防御手段
+7. 场景题
+    ```
+    # 题目描述
+
+    有 A B C D E 5所学校。在一次检查评比中，已知 E 肯定不是第二名或第三名，他们相互进行推测。
+    A：E一定不是第一名；B: 我校第二名；C：A校最差；D：C不是最好；E: D是第一名。结果这只有实际排名为第一和第二名的学校猜对了，其他学校都猜错了。
+  请编写一个程序，求出这5所学校的名次。
+ 要求编码清楚，简单。  设计时考虑一定的灵活性，猜测可能更复杂，如：C: A的排名和B的排名的乘积再减去D的排名的结果是7
+ # 使用说明
+ 1. 先提示不是智力题
+ 2. 确保面试者清楚完理解完题意再开始解题
+ 3. 先描述清楚解法再开始编码
+ # 补充
+ 可以认为已知所有可能的排列情况，直接判断。
+8、如何采集错误?
+9、如何解决 window.onerror 监听跨iframe错误?
+10、页面内一个元素点击后没有执行事件监听函数,原因可能有哪些?如何定位到问题代码?
+11、算法: 回文数字判断,要尽可能高效的算法.
+12、级联组件设计,及很大数据量时的优化;
+13、页面卡顿如何定位,如何优化.
+14、讲讲做过最难/有价值项目?学到什么?有啥问题,如何解决?
+15、业务项目问题,性能问题,问题定位, 会被反复问到
+
+面试形式：网上直接写代码，或者笔试，聊天的形式都有可能；3论技术面+1轮hr面
+如果是视频面试，请提前10分钟进入链接，检查好耳机和摄像头
+总结：1、算法只是加分项，https://leetcodecn.com/explore/featured/card/bytedance/
+
+建议优先刷这个页面的题目，再刷其它的基础算法题
+3、面试过程中题目一定要写出多种答案，面试官可能会问每种答案的优缺点，如果面试过程中有回答不上来的题目，千万不要直接回答：不知道！可以请教面试官，如：这个地方是这样吗？有哪些书籍或者资料可以查询？哪怕只有一般的思路，也要讲出来，和面试官一起切磋，面试官的目的不是难倒你，而是想考察你的思路。
+4、面试结束时，面试官一般会问：你有什么问题问我的吗？（请不要问一些技术无关的问题，比如：几点下班，团队现在多少人等；这些问题可以留给我或者hr来解答 。最好是根据面试情况，问一下技术方向的话题，比如性能优化你回答的不好，问面试官，如何提高这方面的技术，尽量表现出对技术的追求，面试官会喜欢的）
+5、无论你出于什么目的参加面试，请尊重面试机会，面试过程中把最好的素养和丰富的知识展现出来，大厂每次面试，都会留档，面试过程愉快和良好，对以后的跳槽也是有好处的。面试的好，谈薪的时候，才有可能谈到更高的薪资
+6、上一轮面试没有回答出来的题目，下一轮面试很有可能再次考到，请在等待下一轮面试官的过程中，再想一下最优解（如果2次面试分开面试的，回去一定好好复习上轮面试回答不好的题目，然后做一下拓展），有人选3次都有问同一道题
+7、最近很多人选，反复考到性能优化的题目，请好好复习，祝面试顺利！
+8、面经请不要外传，不要给自己增加竞争对手，也请理解我的工作，谢谢！
+
+
+3 14 567
+43 151
+71
+1、macrotask和microtask
+2、手写双向绑定实现，两种
+3、顺序延时输出数组里的每一项
+4、promise是如何实现链式调用的
+5、在哪些情况下一个元素绑定的点击事件不会被触发
+6、一个完全二叉树，全部是大于0的整数，给出一个整数N，问从二叉树的根部开始向下，存不存在一个路径，使路径上所有的点的和是N
+7、N级台阶，一次只能跳3级4级或者5级，请问一种有多少种跳法
+
+
+1、一个数组，里面有N个整数不重复，求这个N个整数中缺少的最小正整数，要求时间复杂度是O(n)
+2、1000万ip地址，设计一个系统最快的查出某个ip地址在不在其中
+3、hashMap的实现原理
+4、具体项目的相关问题
+
+1、用正则表达式把一个数字字符串分割成千分位形式
+2、前端优化的思路和方法
+3、聊的都是具体的项目

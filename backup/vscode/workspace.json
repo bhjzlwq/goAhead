@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "eslint.autoFixOnSave": true,
+    "eslint.run": "onSave",
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      {
+        "language": "vue",
+        "autoFix": true
+      },
+      {
+        "language": "html",
+        "autoFix": true
+      }
+    ],
+    "search.usePCRE2": true,
+    "scss.lint.propertyIgnoredDueToDisplay": "ignore",
+    "git.ignoreLimitWarning": true
+  }
+}

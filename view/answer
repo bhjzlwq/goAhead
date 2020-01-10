@@ -1,0 +1,48 @@
+1、 css BFC
+  块级格式化上下文 block Formatting context
+
+2、static 与relative的区别
+  static 静态定位，是position的默认值
+  relative 相对定位
+
+3、require 和 import的区别
+  require/exports 遵循的是 node CommonJs 规范
+  import/export 遵循的是 ES6 规范 通常都会被babel转为require/exports
+
+7、
+```
+  function add () {
+    const args = Array.prototype.slice.call(arguments);
+    const fn = function () {
+      const fnArgs = Array.prototype.slice.call(arguments);
+      return add.apply(null, args.concat(fnArgs));
+    }
+    fn.toString = function () {
+      return args.reduce((a,b)=>a+b);
+    }
+    return fn
+  }
+  console.log(add(1))
+  console.log(add(1)(2)(3)());
+  console.log(add(1,2,3)(4))
+  console.log(add(1,2,3)(4)()(5))
+```
+15、
+```js
+  var a = 10;
+  function say() {
+      console.log(a);
+      var a = 20;
+      // let a = 20;
+      console.log(a);
+  }
+  // undefined 20
+  // ReferenceError
+```
+arguments 如何转数组, 尽可能多方式
+    arguments 为什么可以通过上述方式转为数组?
+    [...arguments];
+    Array.prototype.slice.call(arguments); 类数组对象（含有length）
+    Array.from(arguments) 类数组对象和可遍历对象（iterable）
+
+39、浏览器的绘制原理，重排及重绘

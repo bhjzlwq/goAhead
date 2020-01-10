@@ -1,0 +1,30 @@
+{
+  "name": "goAhead",
+  "version": "1.0.0",
+  "description": "",
+  "main": "temp.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhjzlwq/goAhead.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhjzlwq/goAhead/issues"
+  },
+  "homepage": "https://github.com/bhjzlwq/goAhead#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "vuepress": "^1.2.0"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.7.4"
+  }
+}
