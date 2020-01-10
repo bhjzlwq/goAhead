@@ -14,23 +14,25 @@ module.exports = {
       },
       {
         text: 'LeetCode',
-        link: '/leetcode'
+        link: '/leetcode/'
       },
       {
         text: '算法',
-        link: '/algorithm'
+        link: '/algorithm/'
       },
       {
         text: '思考',
-        link: '/thinking'
+        link: '/thinking/'
       },
       // {
       //   text: 'GitHub',
       //   link: '/thinking'
       // },
     ],
+    lastUpdated: 'Last Updated',
     sidebar: 'auto',
-    sidebarDepth: 2
+    sidebarDepth: 2,
+    smoothScroll: true
   },
   plugins: [
     '@vuepress/back-to-top',
