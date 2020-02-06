@@ -31,7 +31,7 @@ module.exports = {
     ],
     lastUpdated: 'Last Updated',
     sidebar: 'auto',
-    sidebarDepth: 2,
+    sidebarDepth: 3,
     smoothScroll: true
   },
   plugins: [

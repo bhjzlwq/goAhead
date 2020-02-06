@@ -1,14 +1,9 @@
-const http = require("http");
-const fs = require("fs");
-const server = http.createServer((req,res) => {
-  res.writeHead(200);
-  var file = fs.readFile(__dirname,(err,params)=>{
-      console.log(res);
-    res.end(req);
-  });
-
-}).listen(3000,()=>{
-  process.title="HELLO WORLD"
-  console.log("进程TITLE",process.title)
-  console.log("进程ID",process.pid)
+let express = require("express");
+let app = express();
+app.get('/say/',function(req,res){
+  let {wd,callback} = req.query;
+  console.log(wd,callback);
+  res.end(`${callback}('I hate You')`)
 })
+app.listen(3000);
+console.log('listen at : localhost:3000')
